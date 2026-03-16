@@ -1,6 +1,6 @@
-import { eq } from "drizzle-orm";
+import { eq, desc } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
+import { InsertUser, users, fileUploads, updates, mappings, InsertFileUpload, InsertUpdate, InsertMapping } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -89,4 +89,54 @@ export async function getUserByOpenId(openId: string) {
   return result.length > 0 ? result[0] : undefined;
 }
 
-// TODO: add feature queries here as your schema grows.
+export async function createFileUpload(data: InsertFileUpload) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const result = await db.insert(fileUploads).values(data);
+  return result;
+}
+
+export async function getFileUploadById(id: number) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const result = await db.select().from(fileUploads).where(eq(fileUploads.id, id)).limit(1);
+  return result.length > 0 ? result[0] : undefined;
+}
+
+export async function createUpdate(data: InsertUpdate) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const result = await db.insert(updates).values(data);
+  return result;
+}
+
+export async function getUpdateById(id: number) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const result = await db.select().from(updates).where(eq(updates.id, id)).limit(1);
+  return result.length > 0 ? result[0] : undefined;
+}
+
+export async function getUserUpdates(userId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.select().from(updates).where(eq(updates.userId, userId)).orderBy(desc(updates.createdAt));
+}
+
+export async function updateUpdateStatus(id: number, status: "processing" | "completed" | "failed", data?: Partial<InsertUpdate>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.update(updates).set({ status, ...data }).where(eq(updates.id, id));
+}
+
+export async function createMappings(mappingsList: InsertMapping[]) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.insert(mappings).values(mappingsList);
+}
+
+export async function getUpdateMappings(updateId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.select().from(mappings).where(eq(mappings.updateId, updateId));
+}

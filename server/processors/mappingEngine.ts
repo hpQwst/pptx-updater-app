@@ -12,7 +12,5 @@ export interface AutoMapping {
   confidence: number;
 }
 
-export function generateMappings(excelAnalysis: ExcelAnalysis, pptxAnalysis: PPTXAnalysis): AutoMapping[] {
-  const mappings: AutoMapping[] = [];
-  return mappings;
-}
+export function generateMappings(excelAnalysis: ExcelAnalysis, pptxAnalysis: PPTXAnalysis): AutoMapping[] {\n  const mappings: AutoMapping[] = [];\n  return mappings;\n}\nENDFILE
+

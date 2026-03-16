@@ -61,7 +61,7 @@ git tag v1.0.1
 git push origin main --tags
 
 # 4. GitHub Actions gera automaticamente o novo instalador
-# 5. Compartilhe o link: https://github.com/seu-usuario/pptx-updater-app/releases
+# 5. Compartilhe o link: https://github.com/hpQwst/pptx-updater-app/releases
 ```
 
 ---

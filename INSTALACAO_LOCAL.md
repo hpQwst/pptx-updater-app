@@ -22,7 +22,7 @@ Antes de começar, você precisa ter instalado no seu Windows:
 Abra o PowerShell ou CMD no diretório onde deseja salvar o projeto:
 
 ```powershell
-git clone https://github.com/seu-usuario/pptx-updater-app.git
+git clone https://github.com/hpQwst/pptx-updater-app.git
 cd pptx-updater-app
 ```
 
@@ -108,9 +108,9 @@ seu-projeto\dist\
    - Gerar o instalador
    - Criar um Release com os arquivos
 
-4. **Compartilhar link**: Envie o link do Release para as pessoas
+3. **Compartilhar link**: Envie o link do Release para as pessoas
    ```
-   https://github.com/seu-usuario/pptx-updater-app/releases/tag/v1.0.1
+   https://github.com/hpQwst/pptx-updater-app/releases/tag/v1.0.1
    ```
 
 ### Opção 2: Distribuição Manual
@@ -131,18 +131,15 @@ seu-projeto\dist\
    - A aplicação será instalada e um atalho criado no menu Iniciar
 
 ## Configuração para Atualização Automática
-
-Para que a atualização automática funcione, edite o arquivo `electron-builder.yml`:
+Para que a atualização automática funcione, o arquivo `electron-builder.yml` já está configurado corretamente:
 
 ```yaml
 publish:
   provider: github
-  owner: seu-usuario-github
+  owner: hpQwst
   repo: pptx-updater-app
   releaseType: release
 ```
-
-Substitua `seu-usuario-github` pelo seu usuário do GitHub.
 
 ## Troubleshooting
 

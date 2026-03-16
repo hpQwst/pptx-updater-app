@@ -30,6 +30,6 @@ portable:
 
 publish:
   provider: github
-  owner: seu-usuario-github
+  owner: hpQwst
   repo: pptx-updater-app
   releaseType: release

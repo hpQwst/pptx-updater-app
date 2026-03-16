@@ -49,3 +49,16 @@
 - [x] Script Python para análise de PPTX
 - [x] Script Python para atualização de PPTX
 - [x] Módulo de mapeamento automático (mappingEngine.ts)
+
+
+## Desktop/Electron (Concluído)
+
+- [x] Instalar dependências Electron
+- [x] Criar main process (electron/main.ts)
+- [x] Configurar electron-updater
+- [x] Criar arquivo de configuração update (electron-builder.yml)
+- [x] Implementar notificações de atualização (UpdateNotification.tsx)
+- [x] Criar script de build para Windows (pnpm build:win)
+- [x] Configurar GitHub Actions para releases (.github/workflows/release.yml)
+- [x] Criar hook useElectronUpdater para integração
+- [x] Documentar processo de instalação e atualização (DESKTOP_SETUP.md)

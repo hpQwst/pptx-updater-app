@@ -1,0 +1,35 @@
+appId: com.pptx-updater.app
+productName: PPTX Auto-Updater
+directories:
+  buildResources: assets
+  output: dist
+
+files:
+  - dist/**/*
+  - node_modules/**/*
+  - package.json
+
+win:
+  target:
+    - nsis
+    - portable
+  certificateFile: null
+  certificatePassword: null
+  signingHashAlgorithms:
+    - sha256
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: PPTX Auto-Updater
+
+portable:
+  artifactName: ${productName}-${version}-portable.exe
+
+publish:
+  provider: github
+  owner: seu-usuario-github
+  repo: pptx-updater-app
+  releaseType: release

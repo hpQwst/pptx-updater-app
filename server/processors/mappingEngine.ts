@@ -1,5 +1,9 @@
-import { ExcelSheetData, ExcelAnalysis } from "./excelProcessor";
 import { PPTXAnalysis } from "./pptxProcessor";
+
+export interface ExcelAnalysis {
+  sheets: string[];
+  data: Record<string, any[]>;
+}
 
 export interface AutoMapping {
   slideNumber: number;
@@ -12,5 +16,12 @@ export interface AutoMapping {
   confidence: number;
 }
 
-export function generateMappings(excelAnalysis: ExcelAnalysis, pptxAnalysis: PPTXAnalysis): AutoMapping[] {\n  const mappings: AutoMapping[] = [];\n  return mappings;\n}\nENDFILE
-
+export function generateMappings(excelAnalysis: ExcelAnalysis, pptxAnalysis: PPTXAnalysis): AutoMapping[] {
+  const mappings: AutoMapping[] = [];
+  
+  // TODO: Implementar lógica de mapeamento automático
+  // Esta função irá analisar a estrutura do Excel e PPTX
+  // e gerar sugestões de mapeamento automático
+  
+  return mappings;
+}
